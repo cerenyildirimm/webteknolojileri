@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>İletişim</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbardiv">
+            <ul id="navbar">
+                <li><a href="index.html"><i class="fas fa-home"></i> Hakkımda</a></li>
+                <li><a href="sehrim.html>"><i class="fas fa-city"></i> Şehrim</a></li>
+                <li><a href="ozgecmis.html"><i class="fas fa-user-md"></i> Özgeçmiş</a></li>
+                <li><i class="fas fa-volleyball-ball"></i> İlgi Alanlarım</li>
+                <li class="active"><a href="iletisim.html"><i class="fas fa-phone"></i> İletişim</a></li>
+                <li><a href="mirasimiz.html"><i class="fas fa-landmark"></i> Mirasımız</a></li>
+                <li class="giris"><i class="fas fa-sign-in-alt"><a href="login.html"></i> Giriş Yap</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <h1>İletişim Bilgileri :</h1>
+        <form action="form_oku.php" onsubmit="return gecerliMi(this)" method="POST">
+            Ad : <input class="block" type="text" name="ad">
+            Soyad : <input class="block" type="text" name="soyad">
+            E-Mail :<input class="block" type="email" name="email">
+            Telefon Numarası :<input class="block" type="tel" name="tel">
+            Cinsiyet :
+            <input type="radio" name="cinsiyet" value="erkek" checked> Erkek
+            <input type="radio" name="cinsiyet" value="kadin"> Kadın <br>
+            Bilinen Diller: <br>
+            <label><input type="checkbox" name="dil[]" value="ingilizce"> İngilizce </label><br>
+            <label><input type="checkbox" name="dil[]" value="almanca"> Almanca </label><br>
+            <label><input type="checkbox" name="dil[]" value="fransızca"> Fransızca </label><br>
+            <label><input type="checkbox" name="dil[]" value="italyanca"> İtalyanca </label><br>
+
+            Şehir :
+            <select class="block" name="sehir">
+                <option value="Kocaeli" selected>Kocaeli</option>
+                <option value="İstanbul">İstanbul</option>
+                <option value="Kırklareli">Kırklareli</option>
+                <option value="Antalya">Antalya</option>
+                <option value="Ankara">Ankara</option>
+            </select>
+
+            Göndermek İstediğiniz Mesaj: <br>
+            <textarea name="text" rows="10" cols="30"></textarea> <br>
+            <input type="reset" name="sifirla" value="SIFIRLA">
+            <input type="submit" name="gonder" value="GÖNDER">
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/66c316fb45.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script >
+    function gecerliMi(form)
+    {
+    var email = form.email.value;
+    var at=email.indexOf("@");
+    var dot=email.lastIndexOf(".");
+    if ( at<1 || dot<at+2 || dot+2>=email.length )
+    { 
+        if (email==null || email==""){
+           alert("Lütfen E-mail Alanını Doldurunuz"); 
+           return false;
+        } 
+        alert("Geçerli Bir E-mail Adresi Girin");
+        return false;
+    }     
+    else
+    {
+        return true;
+    }
+    }
+</script>
+
+</body>
+
+</html>
